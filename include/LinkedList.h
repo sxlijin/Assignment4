@@ -272,7 +272,7 @@ private:
      * element of this list (if one exists). We use a smart pointer in order to
      * achieve strong exception safety in certain methods.
      */
-    std::auto_ptr<LinkedListNode<T> > mTail;
+    std::unique_ptr<LinkedListNode<T> > mTail;
 };
 
 /**
