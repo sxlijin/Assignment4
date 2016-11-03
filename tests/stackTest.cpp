@@ -49,9 +49,18 @@ TEST_P(StackTest, Empty) {
                  stack->pop();
          }, StackBase<int>::Underflow);
 
+        delete stack;
+    });
+
+    EXPECT_NO_THROW({
+        StackBase<int>* stack = makeIntStack(GetParam());
+        EXPECT_TRUE(stack->isEmpty());
+        EXPECT_EQ(stack->size(), 0UL);
+
         EXPECT_THROW({
                  stack->top();
          }, StackBase<int>::Underflow);
+
         delete stack;
     });
 }
