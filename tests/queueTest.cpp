@@ -28,12 +28,23 @@ TEST_P(QueueTest, Empty) {
         QueueBase<int>* q = makeIntQueue(GetParam());
         EXPECT_TRUE(q->isEmpty());
         EXPECT_EQ(q->size(), 0UL);
+
         EXPECT_THROW({
                              q->dequeue();
                      }, QueueBase<int>::Underflow);
+
+        delete q;
+    });
+
+    EXPECT_NO_THROW({
+        QueueBase<int>* q = makeIntQueue(GetParam());
+        EXPECT_TRUE(q->isEmpty());
+        EXPECT_EQ(q->size(), 0UL);
+
         EXPECT_THROW({
                              q->front();
                      }, QueueBase<int>::Underflow);
+
         delete q;
     });
 }
