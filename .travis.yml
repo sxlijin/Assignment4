@@ -43,7 +43,7 @@ install:
   - mkdir bin
 
 script:
-  - cd bin && cmake .. && make && echo "Executing compiled binaries:" && { ./3b-array; ./3b-list; }
+  - cd bin && cmake .. && make && echo "Executing compiled binaries:" && { ./Testing; }
 
 after_success:
   - echo "Yay! Your code compiled and runs fine."
